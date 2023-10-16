@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holidays Exercise</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #formone {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 200px;
+        }
+
+        label {
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        input[type="button"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        #display {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function daysremaining(){
+            var selecteddate=document.getElementById("holidays").value;
+            var dateofselecteddate=new Date(selecteddate);
+            var todaysdate=new Date("2023-9-1");
+            var differencedays=dateofselecteddate-todaysdate;
+            differencedays=Math.floor(differencedays/(1000*24*60*60));
+            return differencedays;
+        }
+        function printing(){
+            var display1=document.getElementById("display");
+            var days=daysremaining();
+            display1.textContent="Days remaining are : "+days;
+        }
+    </script>
+</head>
+<body style="text-align: center;">
+    <form id="formone">
+        <label for="holidaySelection" style="text-decoration: line-through; font-size: 1.5rem;"><i>Select a Holiday to know how many days to it from 1/10/23:</label> <br> <br> <br>
+        <select id="holidays">
+            <option value="2023-9-6">Tomorrow</option>
+            <option value="2023-9-23">Dasara</option>
+            <option value="2023-10-13">Deepavali</option>
+            <option value="2023-11-25">Christmas</option>
+            <option value="2024-0-1">New Year</option>
+            <option value="2024-2-10">Ugadi</option>
+        </select> <br> <br>
+        <input type="button" value="Days Remaining" onclick="printing()"> 
+        <p id="display"></p>
+    </form>
+    <footer style="text-align: center;">
+        <p>&copy; KRUTHIK B 2023 (V_5718) | <a href="">GitHub</p>
+    </footer>
+</body>
+</html>
